@@ -1,0 +1,66 @@
+kali linux is a platform for hacking. A specific type of distribution of linux.
+download vmware workstation player -> https://www.vmware.com/asean/products/workstation-player/workstation-player-evaluation.html
+download kali linux -> https://www.kali.org/get-kali/#kali-virtual-machines
+download 7 zip -> https://www.7-zip.org/
+username, password = kali, kali
+
+commands:
+pwd, cd, ls, mkdir, rmdir, cp, rm, mv, locate, updatedb, passwd, man, ls without cd into that directory,
+ls -la, echo 'jason' > test.txt, cp test.txt hello, rm hello/test.txt, mv test.txt hello, locate bash, man ls,
+
+user priviledges
+overview, chmod, adduser, /etc/paswd, /etc/shadow, su (switch user), sudo, cat, sudo su (for creating root account),
+(d for directory and - for file)(ReadWriteExecute for root)(ReadWriteExecute for users who own the file)(ReadWriteExecute for all users)
+chmod 777 hi.txt, adduser john, cat /etc/password, sudo -i passwd (for creating password for current user),
+userdel –r user1, kill -9 xxxx, userdel –r user1
+
+
+networking:
+ifconfig, iwconfig, ping, arp, netstat, route,
+
+Viewing, creating, and editing files:
+echo, cat, replacing vs appending (> vs >>), touch, nano (text editor), gedit (GUI text editor)
+touch hi.txt,
+
+service commands: ???
+services, systemctl
+services apache2 start/stop,
+
+installing and updating tools:
+installing updates with apt-get
+installing tools with apt-get
+using git
+apt-get update && apt-get upgrade (update and upgrade packages in the linux OS), apt-get install git,
+
+Scripting with Bash:
+grep
+cut
+tr
+script writing
+for loops
+
+SSH: Secure shell
+SSH is the client, SSHD is the server, the server must have sshd installed and running
+authentication method: password, public/private key pair, host based
+A network protocol that allows one computer to connect to another computer over an insecure network. SSH encrypts your data.
+SSH private key is stored in the client's computer and public key in the server.
+generate public key: ssh-keygen
+see public key: type/cat C:\Users\Asus\.ssh\id_rsa.pub
+
+# Example with github:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/

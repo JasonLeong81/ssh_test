@@ -47,9 +47,10 @@ SSH private key is stored in the client's computer and public key in the server.
 generate public key: ssh-keygen
 see public key: type/cat C:\Users\Asus\.ssh\id_rsa.pub
 
-# Example with github:
+# Example with github: git init, git remote add origin <url>, git add . , git commit -m 'm', git push -u origin master, git remote set-url origin git@github.com:JasonLeong81/ssh_test.git, settings > ssh and gpg keys, git push -u origin master
 
-
+~/. ssh/id_rsa # for linux
+cd %userprofile% # for windows 
 
 
 

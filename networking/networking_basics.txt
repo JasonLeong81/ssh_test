@@ -121,7 +121,28 @@ DNS servers: Domain Name System
     ->
 
 Introducing network address translation (NAT):
-  -> NAT 
+  -> NAT solves the problem of how to route non-routable IP addresses
+  -> IP Routing is an umbrella term for the set of protocols that determine the path that data follows in order to travel across multiple networks from its source to its destination.
+  -> Two categories of NAT:
+    -> Static Nat: Each private IP address is assigned to a specific routable public IP address. This relationship is kept and maintained by the NAT enabled router.
+      -> When a device needs access outside of the local network, the router translates the local IP address to the assigned public IP address. When the response comes back, the router will translate the public IP back into the local one.
+      -> Scalability issues: An individual routable IP address must be kept for each device that requires access to external network
+    -> Dynamic Nat: the NAT enabled router dynamically assigns a routable IP address to devices from a pool of available public IP addresses
+      -> ???
+    -> Port address translation (PAT):
+      -> A type of DNAT that was developed to increase the scalability of NAT
+      -> When a local network device requires access to a public network, the NAT enabled router dynamically assigns the public IP address to the device with the addition of dynamically assigning a port number to the end of the public IP address.
+      -> The router tracks the IP addresses and port numbers to ensure that network traffic is routed to and from the proper devices.
+      -> PAT still requires a pool of public IP addresses but the pool may only contain one address or it may contain several for a large private network.
+      -> This is the preferred method of implementing NAT for two reasons: less public IP addresses are required and its also easier for administrators to maintain.
+  -> NAT terminology (specifically about the types of addresses):
+    -> Inside local address: a private IP address on the local network
+    -> Inside global address: a public IP address referencing an inside device (The public IP address assigned to the inside device by the NAT enabled router to allow access to external networks)
+    -> Outside global address: a public IP address referencing an outside device
+    -> Outside local address: a private IP address assigned to an outside device
+
+WAN Technologies:
+  ->
 
 
 

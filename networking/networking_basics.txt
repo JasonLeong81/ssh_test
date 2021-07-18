@@ -1,0 +1,137 @@
+OSI model: Open System Interconnection
+Layer 7 - Application
+Layer 6 - Presentation
+Layer 5 - Session
+Layer 4 - Transport
+Layer 3 - Network
+  Multilayer switch (MLS) -> A MLS provides layer 2 and above networking switching services
+  Router -> connects different network together (or switches from other networks) using OSI model layer 3 logical network information, uses software programming for decision making while switch uses ASIC chip,
+Layer 2 - Data Link
+  Switch -> A switch can be programmed to learn who is on the network and which ports he is connected to via that devices layer 2's mac address, switch only communicate with local network devices, uses ASIC chip,
+  Wireless access point (WAP) -> type of network bridge that connects wireless network segments to wired network segments, WAP only communicate with local network devices
+Layer 1 - Physical
+  Analog modem
+  Hub -> have similar function to a router, have one/multiple ports,
+
+Security devices:
+  Firewall:
+    -> Can be places on routers or hosts or can be its own devices.
+    -> Functions at layer 2,3,4, and 7.
+    -> It blocks packet from entering or leaving the network:
+      via stateless inspection -> firewall examine every packet with a set of rules, if packets meets requirement of rules, then certain actions will be made.
+      via stateful inspection -> firewall will only examine the state of the connections between networks. Does not allow external network to make connection internal network.
+  Intrusion Detection System (IDS):
+    -> An IDS is a passive system designed to identify when a network breach or attack against the network is occurring
+    -> An IDS cannot prevent or stop a breach or attack on its own
+    -> It receives a copy of all traffic and evaluates it against a set of standards:
+      -> Signature based -> evaluates network traffic for known malware or attack signatures
+      -> Anamoly based -> evaluates network traffic for suspicious changes
+      -> Policy based ->
+  Intrusion prevention system (IPS):
+    -> An IPS is an active system designed to stop a breach or attack
+    -> It is programmed to make an active response to the situation:
+      -> Redirect the attack, block IP addresses, close down vulnerable interfaces
+  Virtual Private Network (VPN) concentrator:
+    ->
+
+Optimization and performance devices:
+  Load balancer:
+    -> A network appliance that is used to load balance between multiple hosts that contain the same data spreading out the workload for greater efficiency
+    ->
+  Proxy Server:
+    -> An appliance that requests resources on behalf of client machines
+    -> Used to protect the requesting client when the client wants to get information from an untrusted network
+
+Virtual Private Network (VPN):
+  -> A VPN is used by remote hosts to access a private network through an encrypted tunnel through a public network.
+  -> Even though there is many connections in the middle, both ends will see each other as local devices.
+  -> Types:
+    -> site-to-site -> allows a remote site's network to connect to the main site's network and be seen as a local network segment
+    -> remote access VPN (host-to-site VPN) -> allows select remote users to connect to the local network
+    -> host-to-host VPN (SSL) -> allows a secure connection between two systems without the use of VPN client software
+Protocol used by VPN:
+  Internet Protocol security (IPsec):
+    -> Works at Layer 3
+    -> Can be used with:
+      -> Authentication Header (AH) -> can operate in one of transport mode (between two devices (host to host)) or tunnel mode (between two sites, site to site), only authentication services without encryption
+      -> Encapsulating Security Payload (ESP) -> can operate in one of tunnel mode or transport mode, only authentication services with encryption
+  Generic Routing Encapsulation (GRE):
+    -> A tunneling protocol that is capable of encapsulating a wide variety of network layer protocols
+    -> Often sued to create a sub-tunnel within an IPSec connection:
+      -> IPsec will only transmit unicast packets (one to one communication). By using GRE, we can transmit multicast (one to some communication) or broadcast (one to many communication).
+  Point to point Tunneling Protocol (PPTP):
+    -> An older VPN technology that supports dial-up VPN connections. On its own, it lacked native security features. Microsoft added GRE.
+  Transport Layer Security (TLS) protocol:
+    -> A cryptographic protocol used to create a secure encrypted connection between two end devices or applications.
+    -> It uses asymmetrical cryptography to authenticate end points, and then negotiate a symmetrical security key, which is used to encrypt the session.
+    -> Works at layer 5 and above, replaced  Secure Socket layer (SSL)
+  SSL:
+    -> similar to TLS
+
+Network access services:
+  -> Network interface controller/card (NIC):
+    -> The NIC is how a device connects to a network
+    -> Works at two layers of OSI:
+      -> At layer 2, it provides functional means of network communication by determining which networking protocols will be used. It also provides the local network node address through its burned in physical MAC address.
+      -> At layer 1, it determines how the network data traffic will be converted a bit at a time into an electrical signal that can traverse the network media being used.
+    -> Modern computers come with at least one built in ethernet NIC
+  -> Radius (Remote Authentication Dial In User Service):
+    -> An AAA (Authentication Authorization, and Accounting) protocol used to help ensure that only authenticated end users are using the network resources they are authorized to use.
+    -> Only requestor's (end user) password is encrypted everything else is sent in the clear, and accounting features are robust
+  -> TACACS+ (Terminal Access Controller Access-Control System Plus):
+    -> ''
+    -> Al transmissions between devices are encrypted but accounting features are not as robust as those of RADIUS
+
+DHCP in the network:
+  -> Static vs dynamic IP addressing:
+    -> Static IP addressing:
+      -> The administrator assigns an IP number and subnet mask to each host in the network
+      -> The administrator assigns a default gateway (for access to external networks) location and DNS server (human friendly naming conventions) location to each host in the network
+      -> Each time a change is made (i.e. a new gateway is established) each IP configuration on each host must be updated
+    -> Dynamic IP addressing:
+      -> The administrator configures a DHCP server to handle the assigning process, which automates the process.
+      -> How does DHCP work?
+        -> discovery packet (to DHCP server), offer packet, request packet, acknowledgement packet (from DHCP server with IP inside).
+        -> Posts used -> PC sends discovery packet 255.255.255.255:67, DHCP sends offer packet to the PC's MAC address on port 68
+        -> Address scope -> Administrator configures the IP address range with one that is available to be handled out
+        -> Address reservations -> Reserved IP addresses to be handled out to specific MAC addresses (these are for servers or routers).
+        -> Leases -> Configuration parameters are only good for a specified amount of time.
+          -> Options -> default gateway location, DNS server addresses, and Time server addresses
+        -> Preferred IP configuration -> Every PC have a preferred IP addresses (IP addresses the last time it booted up).
+        -> DHCP relays to reduce DHCP.
+
+DNS servers: Domain Name System
+  -> DNS require an FQDN (fully qualified domain name) in order to function.
+  -> www. is a specific service, google. is the local domain, com is the top level domain. And all these are FQDN.
+  -> Levels of DNS servers:
+    -> Local DNS servers -> the server on the local network that contains the HOSTS file that maps the FQDN to IP addresses in the local subdomain
+    -> Top Level Domain (TLD) servers -> the server that contains the records for a top level domain (i.e. .com .org .net)
+    -> Root server -> the server that contains the records for the TLD servers
+    -> Authoritative -> ?
+    -> Non-authoritative -> ?
+  -> DNS records types:
+    -> A record: Maps hostnames to their IPv4 address
+    -> AAAA record: Maps hostnames to their IPv6 address
+    -> CNAME record (EDC.org can be the same as EDC.com): Maps canonical (alias) names to hostnames
+    -> PTR record (CNAME works because of this): Pointer record that points to a canonical name
+    -> MX record: Maps to the email server that is specified for a specific domain.
+  -> Dynamic DNS (DDNS):
+    ->
+  -> DDNS updating:
+    ->
+
+Introducing network address translation (NAT):
+  -> NAT 
+
+
+
+
+
+
+
+
+
+
+
+
+/
